@@ -1,0 +1,410 @@
+Personal Github for HW1: https://github.com/wxy0113/hw-ruby-intro/tree/master/lib
+Name: Xiaoyu Wang
+UIN: 426007836
+
+Solution:
+# Part 1
+
+def sum arr
+  # YOUR CODE HERE
+  if arr == nil || arr.length == 0
+    return 0
+  else
+    return arr.reduce(:+)
+  end
+end
+
+def max_2_sum arr
+  # YOUR CODE HERE
+  if arr == nil || arr.length == 0
+    return 0
+  else 
+    return sum(arr.sort.last(2))
+  end
+end
+
+def sum_to_n? arr, n
+  # YOUR CODE HERE
+  if arr == nil || arr.length < 2
+    return false
+  else
+    return arr.combination(2).find{ |x,y| x + y == n } ? true : false 
+  end
+end
+
+# Part 2
+
+def hello(name)
+  # YOUR CODE HERE
+  return "Hello, " << name
+end
+
+def starts_with_consonant? s
+  # YOUR CODE HERE
+  if s == nil || s.length == 0
+    return false
+  else
+    return s =~ /^[b-df-hj-np-tv-z]/i
+  end
+end
+
+def binary_multiple_of_4? s
+  # YOUR CODE HERE
+  if s == nil || s.length == 0 || s =~ /[^01]/
+    return false
+  end
+  if s == '0'
+    return true
+  end
+  return s =~ /00$/
+end
+
+# Part 3
+
+class BookInStock
+# YOUR CODE HERE
+  attr_accessor :isbn, :price
+  def initialize(isbn, price)
+    if isbn == nil || isbn.length == 0 || price <= 0
+      raise ArgumentError
+    else
+      @isbn, @price = isbn, price
+    end
+  end
+  def price_as_string() 
+    return sprintf("$%.2f", @price)
+  end
+end
+
+Log:
+ec2-user:~/environment/hw-ruby-intro (master) $ rspec
+
+Ruby intro part 1
+  #sum
+    should be defined
+    returns correct sum [20 points]
+    works on the empty array [10 points]
+  #max_2_sum
+    should be defined
+    returns the correct sum [7 points]
+    works even if 2 largest values are the same [3 points]
+    returns zero if array is empty [10 points]
+    returns value of the element if just one element [10 points]
+  #sum_to_n
+    should be defined
+    returns true when any two elements sum to the second argument [30 points]
+    returns false for any single element array [5 points]
+    returns false for an empty array [5 points]
+
+#hello
+  should be defined
+  The hello method returns the correct string [30 points]
+
+#starts_with_consonant?
+  should be defined
+  classifies true cases [10 points]
+  classifies false cases [10 points]
+  works on the empty string [5 points]
+  works on nonletters [5 points]
+
+#binary_multiple_of_4?
+  should be defined
+  classifies valid binary numbers [30 points]
+  rejects invalid binary numbers [10 points]
+
+BookInStock
+  should be defined
+  getters and setters
+    should set ISBN [10 points]
+    should set price [10 points]
+    should be able to change ISBN [10 points]
+    should be able to change price [10 points]
+  constructor
+    should reject invalid ISBN number [10 points]
+    should reject zero price [10 points]
+    should reject negative price [10 points]
+  #price_as_string
+    should be defined
+    should display 33.95 as "$33.95" [10 points]
+    should display 1.1 as $1.10 [10 points]
+    should display 20 as $20.00 [10 points]
+
+Finished in 0.02943 seconds (files took 0.09651 seconds to load)
+34 examples, 0 failures
+
+ec2-user:~/environment/hw-ruby-intro (master) $ rspec
+
+Ruby intro part 1
+  #sum
+    should be defined
+    returns correct sum [20 points]
+    works on the empty array [10 points]
+  #max_2_sum
+    should be defined
+    returns the correct sum [7 points]
+    works even if 2 largest values are the same [3 points]
+    returns zero if array is empty [10 points]
+    returns value of the element if just one element [10 points]
+  #sum_to_n
+    should be defined
+    returns true when any two elements sum to the second argument [30 points]
+    returns false for any single element array [5 points]
+    returns false for an empty array [5 points]
+
+#hello
+  should be defined
+  The hello method returns the correct string [30 points]
+
+#starts_with_consonant?
+  should be defined
+  classifies true cases [10 points]
+  classifies false cases [10 points]
+  works on the empty string [5 points]
+  works on nonletters [5 points]
+
+#binary_multiple_of_4?
+  should be defined
+  classifies valid binary numbers [30 points]
+  rejects invalid binary numbers [10 points]
+
+BookInStock
+  should be defined
+  getters and setters
+    should set ISBN [10 points]
+    should set price [10 points]
+    should be able to change ISBN [10 points]
+    should be able to change price [10 points]
+  constructor
+    should reject invalid ISBN number [10 points]
+    should reject zero price [10 points]
+    should reject negative price [10 points]
+  #price_as_string
+    should be defined
+    should display 33.95 as "$33.95" [10 points]
+    should display 1.1 as $1.10 [10 points]
+    should display 20 as $20.00 [10 points]
+
+Finished in 0.02902 seconds (files took 0.09018 seconds to load)
+34 examples, 0 failures
+
+ec2-user:~/environment/hw-ruby-intro (master) $ rspec
+
+Ruby intro part 1
+  #sum
+    should be defined
+    returns correct sum [20 points]
+    works on the empty array [10 points]
+  #max_2_sum
+    should be defined
+    returns the correct sum [7 points]
+    works even if 2 largest values are the same [3 points]
+    returns zero if array is empty [10 points]
+    returns value of the element if just one element [10 points]
+  #sum_to_n
+    should be defined
+    returns true when any two elements sum to the second argument [30 points]
+    returns false for any single element array [5 points]
+    returns false for an empty array [5 points]
+
+#hello
+  should be defined
+  The hello method returns the correct string [30 points]
+
+#starts_with_consonant?
+  should be defined
+  classifies true cases [10 points]
+  classifies false cases [10 points]
+  works on the empty string [5 points]
+  works on nonletters [5 points]
+
+#binary_multiple_of_4?
+  should be defined
+  classifies valid binary numbers [30 points]
+  rejects invalid binary numbers [10 points]
+
+BookInStock
+  should be defined
+  getters and setters
+    should set ISBN [10 points]
+    should set price [10 points]
+    should be able to change ISBN [10 points]
+    should be able to change price [10 points]
+  constructor
+    should reject invalid ISBN number [10 points]
+    should reject zero price [10 points]
+    should reject negative price [10 points]
+  #price_as_string
+    should be defined
+    should display 33.95 as "$33.95" [10 points]
+    should display 1.1 as $1.10 [10 points]
+    should display 20 as $20.00 [10 points]
+
+Finished in 0.03055 seconds (files took 0.0905 seconds to load)
+34 examples, 0 failures
+
+ec2-user:~/environment/hw-ruby-intro (master) $ rspec
+
+Ruby intro part 1
+  #sum
+    should be defined
+    returns correct sum [20 points]
+    works on the empty array [10 points]
+  #max_2_sum
+    should be defined
+    returns the correct sum [7 points]
+    works even if 2 largest values are the same [3 points]
+    returns zero if array is empty [10 points]
+    returns value of the element if just one element [10 points]
+  #sum_to_n
+    should be defined
+    returns true when any two elements sum to the second argument [30 points]
+    returns false for any single element array [5 points]
+    returns false for an empty array [5 points]
+
+#hello
+  should be defined
+  The hello method returns the correct string [30 points]
+
+#starts_with_consonant?
+  should be defined
+  classifies true cases [10 points]
+  classifies false cases [10 points]
+  works on the empty string [5 points]
+  works on nonletters [5 points]
+
+#binary_multiple_of_4?
+  should be defined
+  classifies valid binary numbers [30 points]
+  rejects invalid binary numbers [10 points]
+
+BookInStock
+  should be defined
+  getters and setters
+    should set ISBN [10 points]
+    should set price [10 points]
+    should be able to change ISBN [10 points]
+    should be able to change price [10 points]
+  constructor
+    should reject invalid ISBN number [10 points]
+    should reject zero price [10 points]
+    should reject negative price [10 points]
+  #price_as_string
+    should be defined
+    should display 33.95 as "$33.95" [10 points]
+    should display 1.1 as $1.10 [10 points]
+    should display 20 as $20.00 [10 points]
+
+Finished in 0.03424 seconds (files took 0.08978 seconds to load)
+34 examples, 0 failures
+
+ec2-user:~/environment/hw-ruby-intro (master) $ rspec
+
+Ruby intro part 1
+  #sum
+    should be defined
+    returns correct sum [20 points]
+    works on the empty array [10 points]
+  #max_2_sum
+    should be defined
+    returns the correct sum [7 points]
+    works even if 2 largest values are the same [3 points]
+    returns zero if array is empty [10 points]
+    returns value of the element if just one element [10 points]
+  #sum_to_n
+    should be defined
+    returns true when any two elements sum to the second argument [30 points]
+    returns false for any single element array [5 points]
+    returns false for an empty array [5 points]
+
+#hello
+  should be defined
+  The hello method returns the correct string [30 points]
+
+#starts_with_consonant?
+  should be defined
+  classifies true cases [10 points]
+  classifies false cases [10 points]
+  works on the empty string [5 points]
+  works on nonletters [5 points]
+
+#binary_multiple_of_4?
+  should be defined
+  classifies valid binary numbers [30 points]
+  rejects invalid binary numbers [10 points]
+
+BookInStock
+  should be defined
+  getters and setters
+    should set ISBN [10 points]
+    should set price [10 points]
+    should be able to change ISBN [10 points]
+    should be able to change price [10 points]
+  constructor
+    should reject invalid ISBN number [10 points]
+    should reject zero price [10 points]
+    should reject negative price [10 points]
+  #price_as_string
+    should be defined
+    should display 33.95 as "$33.95" [10 points]
+    should display 1.1 as $1.10 [10 points]
+    should display 20 as $20.00 [10 points]
+
+Finished in 0.02973 seconds (files took 0.09789 seconds to load)
+34 examples, 0 failures
+
+ec2-user:~/environment/hw-ruby-intro (master) $ clear
+ec2-user:~/environment/hw-ruby-intro (master) $ clear
+ec2-user:~/environment/hw-ruby-intro (master) $ rspec
+
+Ruby intro part 1
+  #sum
+    should be defined
+    returns correct sum [20 points]
+    works on the empty array [10 points]
+  #max_2_sum
+    should be defined
+    returns the correct sum [7 points]
+    works even if 2 largest values are the same [3 points]
+    returns zero if array is empty [10 points]
+    returns value of the element if just one element [10 points]
+  #sum_to_n
+    should be defined
+    returns true when any two elements sum to the second argument [30 points]
+    returns false for any single element array [5 points]
+    returns false for an empty array [5 points]
+
+#hello
+  should be defined
+  The hello method returns the correct string [30 points]
+
+#starts_with_consonant?
+  should be defined
+  classifies true cases [10 points]
+  classifies false cases [10 points]
+  works on the empty string [5 points]
+  works on nonletters [5 points]
+
+#binary_multiple_of_4?
+  should be defined
+  classifies valid binary numbers [30 points]
+  rejects invalid binary numbers [10 points]
+
+BookInStock
+  should be defined
+  getters and setters
+    should set ISBN [10 points]
+    should set price [10 points]
+    should be able to change ISBN [10 points]
+    should be able to change price [10 points]
+  constructor
+    should reject invalid ISBN number [10 points]
+    should reject zero price [10 points]
+    should reject negative price [10 points]
+  #price_as_string
+    should be defined
+    should display 33.95 as "$33.95" [10 points]
+    should display 1.1 as $1.10 [10 points]
+    should display 20 as $20.00 [10 points]
+
+Finished in 0.02691 seconds (files took 0.09823 seconds to load)
+34 examples, 0 failures
